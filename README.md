@@ -19,6 +19,7 @@ This is a simple web application built with Flask and Mapbox GL JS that allows u
 *   Automatic closing of open LineString drawings.
 *   Configurable AoI buffering (in kilometers).
 *   Configurable target grid cell area (in square kilometers).
+*   > 20  km² grid cells is the preferable for GEE Sentinel-2 image acquisition/download.
 *   Segmentation of the AoI into rectangular grid cells intersecting the (buffered) area.
 *   Visualization of original AoI and segmented grid with toggleable visibility.
 *   Downloadable GeoJSON output of the segmented grid.
