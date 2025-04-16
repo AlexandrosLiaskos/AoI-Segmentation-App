@@ -26,6 +26,8 @@ This is a simple web application built with Flask and Mapbox GL JS that allows u
 
 ## Screenshot / Demo
 
+![image](https://github.com/user-attachments/assets/48d85f6c-abf0-42b2-b020-21ea5cd37b35)
+
 
 ## Prerequisites
 
