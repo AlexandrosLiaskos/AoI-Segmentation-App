@@ -6,7 +6,7 @@ This is a simple web application built with Flask and Mapbox GL JS that allows u
 2.  Calculate basic statistics about the drawn AoI (number of points, area if closed, closed status).
 3.  Optionally close an open loop drawing.
 4.  Configure segmentation parameters (target grid cell area, buffer distance around the AoI).
-5.  Segment the (optionally buffered) closed AoI into a grid of rectangular polygons.
+5.  Segment the (optionally buffered) closed AoI into a grid of rectangular polygons compatible with GEE for further processing.
 6.  Visualize the original AoI and the resulting segmentation grid on the map.
 7.  Download the segmented grid as a GeoJSON file.
 
