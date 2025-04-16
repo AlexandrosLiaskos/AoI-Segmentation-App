@@ -1,0 +1,4 @@
+Flask>=2.0
+shapely>=2.0
+pyproj>=3.3
+geojson>=2.5

@@ -1,0 +1,261 @@
+/* ---- File: style.css ---- */
+
+/* --- Base & Font --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif; /* Modern Font */
+    font-size: 14px; /* Base font size */
+    line-height: 1.5;
+    color: #333;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* --- Controls Panel --- */
+.controls {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.95); /* Slightly less transparent */
+    padding: 20px;
+    border-radius: 8px; /* Softer corners */
+    z-index: 1;
+    max-width: 340px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between direct children (steps, messages) */
+}
+
+.controls-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0 0 5px 0; /* Adjust margin */
+    color: #111;
+}
+
+.control-step {
+    /* Each step area */
+    padding: 0; /* Padding handled by parent gap and internal elements */
+}
+
+.control-step h4 {
+    font-size: 1.05em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #222;
+    border-bottom: 1px solid #eee; /* Subtle separator */
+    padding-bottom: 5px;
+}
+
+.instructions {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Placeholder for Draw icon visual cue */
+.draw-icon-placeholder {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    background-color: #eee; /* Simple placeholder */
+    border: 1px solid #ccc;
+    /* In a real scenario, you might use an SVG or image */
+    position: relative;
+    top: -1px; /* Align better with text */
+    margin: 0 2px;
+}
+
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block; /* Allow side-by-side in groups */
+    width: 100%; /* Default to full width */
+    box-sizing: border-box;
+    padding: 10px 15px;
+    font-size: 0.95em;
+    font-weight: 500;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    margin-top: 5px; /* Spacing when stacked */
+}
+.btn:not(:disabled):hover {
+    filter: brightness(1.1); /* General hover effect */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.btn:not(:disabled):active {
+    transform: scale(0.98); /* Click feedback */
+    filter: brightness(1.0);
+}
+.btn:disabled {
+    background-color: #d8dcde !important; /* Use important to override specific styles */
+    color: #777 !important;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Button Colors (use classes from HTML) */
+.btn-primary { background-color: #007bff; color: white; }
+.btn-warning { background-color: #ffc107; color: #333; } /* Darker text on yellow */
+.btn-secondary { background-color: #6c757d; color: white; }
+.btn-success { background-color: #28a745; color: white; }
+
+.button-group {
+    display: flex;
+    gap: 10px; /* Spacing between buttons */
+    margin-top: 10px;
+}
+.button-group .btn {
+     flex: 1; /* Make buttons in a group share width */
+     margin-top: 0; /* Remove top margin when in a group */
+}
+
+/* --- Inputs & Labels --- */
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 10px; /* Space between label and input */
+}
+
+.input-group label {
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #444;
+    flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+.controls input[type=number] {
+    width: 85px; /* Consistent width */
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.controls input[type=number]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* --- Checkboxes --- */
+.checkbox-group {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+.checkbox-group label {
+    display: block; /* Stack checkboxes */
+    margin-bottom: 8px;
+    font-weight: normal; /* Normal weight for checkbox labels */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.checkbox-group input[type=checkbox] {
+    margin-right: 8px;
+    cursor: pointer;
+    width: 16px; /* Custom size */
+    height: 16px;
+}
+
+
+/* --- Stats Display (Using dl/dt/dd) --- */
+.stats-display {
+    background-color: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Space below stats */
+    border: 1px solid #e9ecef;
+}
+
+.stats-display dl {
+    margin: 0;
+    display: grid; /* Use grid for alignment */
+    grid-template-columns: auto 1fr; /* Label column auto width, value takes rest */
+    gap: 5px 10px; /* Row gap, Column gap */
+}
+
+.stats-display dt {
+    font-weight: 600; /* Bold labels */
+    font-size: 0.9em;
+    color: #495057;
+    grid-column: 1; /* Explicitly first column */
+}
+
+.stats-display dd {
+    margin-left: 0; /* Reset default margin */
+    font-size: 0.9em;
+    color: #212529;
+    grid-column: 2; /* Explicitly second column */
+    word-wrap: break-word; /* Wrap long values if needed */
+}
+
+
+/* --- Messages Area --- */
+.messages-area {
+    margin-top: 10px; /* Consistent spacing */
+}
+
+#messages p { /* Keep existing message styling, just adjust margin/padding */
+    margin-bottom: 0;
+    font-size: 0.9em;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+#messages p.info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+#messages p.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+#messages p.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* --- Download Link --- */
+.download-section {
+    margin-top: 15px;
+}
+#download-link a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #17a2b8; /* Info color */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+#download-link a:hover {
+    background-color: #117a8b; /* Darker info */
+}
+
+/* --- Divider --- */
+.section-divider {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0; /* Slightly more visible divider */
+}
